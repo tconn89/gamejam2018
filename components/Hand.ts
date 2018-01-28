@@ -20,14 +20,19 @@ export default class Hand extends ex.Actor {
     var cardWidth:number = (this.viewport.right - this.viewport.left) / handSize
     var cardHeight:number = (this.viewport.bottom - this.viewport.top)
 
-    console.log(`hand size: ${handSize}`)
-    console.log(`card width: ${cardWidth}`)
-    console.log(`card height: ${cardHeight}`)
+    // console.log(`hand size: ${handSize}`)
+    // console.log(`card width: ${cardWidth}`)
+    // console.log(`card height: ${cardHeight}`)
     this.cards.forEach((card, i) => {
       card.x = i * cardWidth + this.viewport.left 
       card.y = this.viewport.bottom - 100 
       card.setWidth(cardWidth)
       card.setHeight(cardHeight)
+    })
+  }
+  removeKeyHandlers(){
+    this.cards.forEach((card) => {
+      return window.game.input.pointers.primary.off('move', card.onTracking())
     })
   }
 

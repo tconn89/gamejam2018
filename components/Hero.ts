@@ -2,16 +2,19 @@ import * as ex from 'excalibur'
 import Deck from './Deck'
 import Character from './Character'
 import Hand from './Hand'
+import Minion from './Minion'
 
 export default class Hero extends Character {
 
   public type:string = '';
   public deck: Deck;
   public hand: Hand;
+  public minions: Minion[];
 
   constructor(props){
     super(props)
     this.type = props.type
+    this.minions = []
     this.hand = new Hand({x: 0, y:0, width:0, height: 0})
   }
 
