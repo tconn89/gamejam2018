@@ -1,4 +1,5 @@
 import * as ex from 'excalibur'
+import Character from './Character'
 
 interface effects {
   type:number,
@@ -21,7 +22,7 @@ export default class Effect extends ex.Actor {
   battleCry(){
     this.list.forEach((effect) => {
       if(effect.type == Effect.BATTLECRY)
-        return effect.cb()
+        return effect.cb(null)
     })
     return this.battleCry;
   }

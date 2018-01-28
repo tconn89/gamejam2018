@@ -16,6 +16,8 @@
     "webpack": "^1.14.0"
   },
   "dependencies": {
-    "fs": "0.0.1-security"
+    "express": "^4.16.2",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7"
   }
 }

@@ -1,7 +1,8 @@
+var path = require('path')
 module.exports = {
     entry: './index.ts',
     output: {
-        path: __dirname,
+        path: path.resolve(__dirname, 'public/dist'),
         filename: 'bundle.js'
     },
     resolve: {
@@ -14,4 +15,7 @@ module.exports = {
             { test: /\.tsx?$/, loader: 'ts-loader' }
         ]
     }
+    //target: 'node'
+    // externals: {
+    //     fs: "commonjs fs" }
 }

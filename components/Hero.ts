@@ -12,13 +12,19 @@ export default class Hero extends Character {
   constructor(props){
     super(props)
     this.type = props.type
+    this.hand = new Hand({x: 0, y:0, width:0, height: 0})
   }
 
-  setDeck(deck){
-    this.deck = deck
+  setDeck(path:string){
+    this.deck = new Deck({name: 'First Deck', x: 400, y:400, width:50, height:80})
+    this.deck.tmpInit()
+    
   }
   drawCard(){
     var card = this.deck.draw()
     this.hand.cards.push(card)
+    this.hand.render()
+    
+    window.game.add(card)
   }
 }

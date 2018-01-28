@@ -13,6 +13,10 @@ interface Console {
     warn(message?: any, ...optionalParams: any[]): void;
 }
 
+interface Window {
+    game: ex.Engine
+}
+
 interface Error {
     stack?: string;
 }

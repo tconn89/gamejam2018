@@ -4,7 +4,7 @@ export default
     ["Cult Leader",
      "Drakonoid Operative",
      "Wrinkled Philosopher",
-     "Evangelical",
+     "Evangelical Usurper",
      "Arch Bishop",
      "Repentant Palindrome",
      "Spanish Inquisitor",
