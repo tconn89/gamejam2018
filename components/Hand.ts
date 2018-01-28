@@ -35,5 +35,14 @@ export default class Hand extends ex.Actor {
       return window.game.input.pointers.primary.off('move', card.onTracking())
     })
   }
+  sendKeyPressEvent(index:number, confirmed: boolean){
+    if(!confirmed){
+      this.cards[index].onKeyPress()
+      return true;
+    }
+    this.cards[index].onConfirmPress()
+    return false;
+  }
+  
 
 }

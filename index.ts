@@ -69,14 +69,24 @@ $(document).on('keydown', (evt:KeyEvent) => {
     }
     return 
   }
-  if(key == 's')
-    return mage.hand.cards[1].onKeyPress()
-  if(key == 'd')
-    return mage.hand.cards[2].onKeyPress()
-  if(key == 'f')
-    return mage.hand.cards[3].onKeyPress()
-  if(key == 'z')
-    return mage.hand.removeKeyHandlers()
+  if(key == 's'){
+    confirmKey = mage.hand.sendKeyPressEvent(1, confirmKey)
+    return
+  }
+  if(key == 'd'){
+    confirmKey = mage.hand.sendKeyPressEvent(2, confirmKey)
+    return
+  }
+  if(key == 'f'){
+
+    confirmKey = mage.hand.sendKeyPressEvent(3, confirmKey)
+    return
+  }
+  if(key == 'z'){
+    mage.hand.removeKeyHandlers()
+    confirmKey = false
+  }
+
 })
 
 var firstCard = mage.hand.cards[0]
