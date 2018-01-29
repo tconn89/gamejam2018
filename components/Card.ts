@@ -1,6 +1,7 @@
 import * as ex from 'excalibur'
 import Effect from './Effect'
 import Minion from './Minion'
+import { PointerEvent } from 'Input/Index';
 
 export default class Card extends ex.Actor {
 
@@ -15,6 +16,7 @@ export default class Card extends ex.Actor {
     this.name = props.name
     this.effect = props.effect
     this.sprite = this.setSprite(props.sprite)
+    //this.onTestHover();
   }
 
   setSprite(path:string){
@@ -22,6 +24,11 @@ export default class Card extends ex.Actor {
     return texture.asSprite();
   }
 
+  onTestHover(){
+    this.on('pointermove', (evt: PointerEvent) => {
+      console.log(`hovering at x:${evt.x} y:${evt.y}`)
+    })
+  }
   onHoverInHandler(){
     this.y = 580;
     this.sprite.scale.setTo(0.75, 0.75)

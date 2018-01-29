@@ -18,6 +18,7 @@ export default class Minion extends ex.Actor {
     this.colorMinion()
     this.addMinionInLine()
     this.addLabel()
+    this.onClick()
   }
 
   colorMinion(){
@@ -29,7 +30,13 @@ export default class Minion extends ex.Actor {
     this.x = (this.index * (this.getWidth() + padding)) + this.x
   }
   addLabel(){
-    this.label = new ex.Label(this.name, this.x, this.y, 'Roboto')
+    this.label = new ex.Label(this.name, this.x - this.getWidth()/2, this.y, 'Roboto')
+  }
+
+  onClick(){
+    this.on('pointerdown', (evt:PointerEvent) => {
+      console.log(this.name);
+    })
   }
 
 }
